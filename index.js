@@ -36,7 +36,7 @@ let getRandomUser = () => {
     ];
 }
 
-//inserting data of about 100 
+//inserting data of about 200 
 
 // let data = [];
 // for(let i = 1; i<=100; i++){
