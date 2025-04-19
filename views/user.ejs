@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Users</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      padding: 40px;
+      text-align: center;
+    }
+
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 90%;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px 20px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+    }
+
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover td {
+      background-color: #eef7ff;
+    }
+
+    td form {
+      margin: 5px 0;
+    }
+
+    button {
+      padding: 6px 14px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 140px;
+    }
+
+    button[type="submit"] {
+      background-color: #28a745;
+      color: white;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #218838;
+    }
+
+    .delete-btn {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .delete-btn:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+    <% for(u of users){ %>
+    <tr>
+      <td><%= u.id %></td>
+      <td><%= u.username %></td>
+      <td><%= u.email %></td>
+      <td>
+        <form action="/user/<%= u.id %>/edit" method="get">
+          <button type="submit">Edit username</button>
+        </form>
+        <form action="/user/<%= u.id %>/delete" method="get">
+          <button type="submit" class="delete-btn">Delete username</button>
+        </form>
+      </td>
+    </tr>
+    <% } %>
+    <form action="/user/new"><button>Add New User</button></form>
+  </table>
+</body>
+</html>
